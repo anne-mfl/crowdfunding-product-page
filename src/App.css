@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+/* .headerImage {
+  background-image: url('./images/image-hero-desktop.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 420px;
+} */
+
+.popup-content {
+  padding: 0 !important;
+  border: none !important;
+  background-color: transparent !important;
+  height: 90vh !important;
+  margin: auto;
+  overflow-y: scroll;
+  border-radius: 20px ;
+  /* padding-bottom: 40px !important;
+  padding-top: 40px !important; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+
+/* .popup-content::-webkit-scrollbar {
+  width: 6px;
+}
+ 
+.popup-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background-color: rgb(185, 174, 174);
+  background-color: red;
+  position: relative !important;
+  right: 20px !important;
+}
+ 
+.popup-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+} */
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
