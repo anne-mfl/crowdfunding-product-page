@@ -9,9 +9,26 @@ import 'reactjs-popup/dist/index.css';
 
 function Modal({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice }) {
 
+  const [message, setMessage] = useState(null)
+
   const handleOnClick = (reward) => {
     setSelectedReward(reward.title);
     setPledgedPrice(reward.price);
+  }
+
+  const handleSubmit = (reward) => {
+    
+    selectedReward === 'no reward' && pledgedPrice < 1
+      && setMessage(`please pledge at least $1`)
+    setTimeout(() => (
+      setMessage(null)
+    ), 3000)
+
+    pledgedPrice < reward.price
+      && setMessage(`please pledge more than $ ${reward.price} for this reward`)
+    setTimeout(() => (
+      setMessage(null)
+    ), 3000)
   }
 
   return (
@@ -48,6 +65,7 @@ function Modal({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPric
         {
           selectedReward === 'no reward'
             ?
+            <>
             <div className='flex justify-between items-center border-t-2 py-6 px-8
             duration-300'>
               <p className='text-darkGray'>Enter your pledge</p>
@@ -58,9 +76,14 @@ function Modal({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPric
                   onChange={(e) => setPledgedPrice(e.target.value)}
                   className='border py-4 rounded-full border-moderateCyan focus:border-2 focus:pt-3 outline-0 w-28 mr-4 pl-10 pr-6 font-semibold'
                 />
-                <button className='bg-moderateCyan hover:bg-darkCyan py-4 px-6 rounded-full text-white font-semibold'>Continue</button>
+                <button
+                  className='bg-moderateCyan hover:bg-darkCyan py-4 px-6 rounded-full text-white font-semibold'
+                  onClick={() => handleSubmit()}
+                >Continue</button>
               </div>
             </div>
+                <p className='text-right text-red-500 text-xs relative right-36 pr-2 bottom-5'>{message}</p>
+                </>
             :
             <div className='h-0 duration-300'></div>
         }
@@ -85,10 +108,7 @@ function Modal({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPric
                 : 'appearance-none rounded-full h-6 w-10 border-2 border-borderLight bg-white hover:border-moderateCyan checked:bg-moderateCyan checked:border-borderLightfocus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-6 cursor-pointer'}
               id={reward.title}
               name='typeOfReward'
-              // onClick={(() => setSelectedReward(reward.title),
-              //   () => setPledgedPrice(reward.price)
-              // )}
-              onClick={()=>handleOnClick(reward)}
+              onClick={() => handleOnClick(reward)}
               disabled={reward.spotsLeft === 0 && true}
               checked={selectedReward === reward.title}
               readOnly
@@ -116,6 +136,7 @@ function Modal({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPric
           {
             selectedReward === reward.title
               ?
+              <>
               <div className='flex justify-between items-center border-t-2 py-6 px-8 duration-300'>
                 <p className='text-darkGray'>Enter your pledge</p>
 
@@ -127,13 +148,14 @@ function Modal({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPric
                     onChange={(e) => setPledgedPrice(e.target.value)}
                     className='border py-4 rounded-full border-moderateCyan focus:border-2 focus:pt-3 outline-0 w-28 mr-4 pl-10 pr-6 font-semibold'
                   />
-                  <button className='bg-moderateCyan hover:bg-darkCyan py-4 px-6 rounded-full text-white font-semibold'>Continue</button>
+                  <button
+                    className='bg-moderateCyan hover:bg-darkCyan py-4 px-6 rounded-full text-white font-semibold'
+                    onClick={() => handleSubmit(reward)}
+                  >Continue</button>
                 </div>
               </div>
-              // {data['pledged price'] < reward.price
-              //   &&
-              //   <p className='text-red-600 text-xs text-right relative bottom-4 right-36'>Please pledge more than ${reward.price}</p>
-              // }
+               <p className='text-right text-red-500 text-xs relative right-16 bottom-5'>{message}</p>
+               </>
               :
               <div className='h-0 duration-300'></div>
           }
