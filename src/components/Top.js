@@ -9,7 +9,7 @@ import closeModalIcon from '../images/icon-close-modal.svg'
 import closeModalHoveredIcon from '../images/icon-close-modal-hovered.svg'
 
 
-function Top({ selectedReward, setSelectedReward }) {
+function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice }) {
 
   const [bookmarked, setBookmarked] = useState(false)
 
@@ -37,7 +37,10 @@ function Top({ selectedReward, setSelectedReward }) {
               </div>
               <Modal
                 selectedReward={selectedReward}
-                setSelectedReward={setSelectedReward} />
+                setSelectedReward={setSelectedReward}
+                pledgedPrice={pledgedPrice}
+                setPledgedPrice={setPledgedPrice}
+              />
             </div>
           )}
         </Popup>

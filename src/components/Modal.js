@@ -9,21 +9,10 @@ import 'reactjs-popup/dist/index.css';
 
 function Modal({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice }) {
 
-  // const [pledgedPrice, setPledgedPrice] = useState(null)
-
-  console.log('pledgedPrice==>', pledgedPrice)
-
-  // useEffect(()=>(
-  //   setPledgedPrice(reward.price)
-  // ),[selectedReward])
-
   const handleOnClick = (reward) => {
     setSelectedReward(reward.title);
     setPledgedPrice(reward.price);
   }
-  // onClick={(() => setSelectedReward(reward.title),
-  //   () => setPledgedPrice(reward.price)
-  // )}
 
   return (
     <div className='px-12 py-4 font-commissioner'>

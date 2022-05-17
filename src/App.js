@@ -17,7 +17,11 @@ import Modal from './components/Modal'
 function App() {
 
   const [selectedReward, setSelectedReward] = useState(null)
+  const [pledgedPrice, setPledgedPrice] = useState(null)
+
   console.log('selectedReward===>', selectedReward)
+  console.log('pledgedPrice==>', pledgedPrice)
+
 
   return (
     <div className='font-commissioner bg-backgroundWhite'>
@@ -38,11 +42,16 @@ function App() {
         <Top
           selectedReward={selectedReward}
           setSelectedReward={setSelectedReward}
+          pledgedPrice={pledgedPrice}
+          setPledgedPrice={setPledgedPrice}
         />
         <Numbers />
         <Detail
           selectedReward={selectedReward}
-          setSelectedReward={setSelectedReward} />
+          setSelectedReward={setSelectedReward}
+          pledgedPrice={pledgedPrice}
+          setPledgedPrice={setPledgedPrice}
+        />
       </main>
 
     </div>

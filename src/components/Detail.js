@@ -1,7 +1,7 @@
 import React from 'react'
 import Reward from './Reward'
 
-function Detail({ selectedReward, setSelectedReward }) {
+function Detail({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice }) {
   return (
     <section className='bg-white w-6/12 mx-auto p-12 relative bottom-20 rounded-xl border-borderMiddle border-2'>
       <h2 className='text-2xl font-bold mb-10'>About this project</h2>
@@ -13,6 +13,8 @@ function Detail({ selectedReward, setSelectedReward }) {
       <Reward
         selectedReward={selectedReward}
         setSelectedReward={setSelectedReward}
+        pledgedPrice={pledgedPrice}
+        setPledgedPrice={setPledgedPrice}
       />
 
     </section>
