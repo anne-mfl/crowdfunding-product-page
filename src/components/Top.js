@@ -9,7 +9,7 @@ import closeModalIcon from '../images/icon-close-modal.svg'
 import closeModalHoveredIcon from '../images/icon-close-modal-hovered.svg'
 
 
-function Top({ modal, setModal }) {
+function Top() {
 
   const [bookmarked, setBookmarked] = useState(false)
 
@@ -23,7 +23,6 @@ function Top({ modal, setModal }) {
         <Popup
           trigger={<button
             className='bg-moderateCyan px-10 rounded-full text-white font-semibold hover:bg-darkCyan'
-            onClick={() => setModal(true)}
           >Back this project</button>}
           modal
           nested

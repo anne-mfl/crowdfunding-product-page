@@ -7,7 +7,7 @@ import closeModalIcon from '../images/icon-close-modal.svg'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-function Modal({ checked }) {
+function Modal({ temporarilyChecked }) {
 
   const [isChecked, setIsChecked] = useState(null)
   const [data, setData] = useState({
@@ -15,9 +15,12 @@ function Modal({ checked }) {
     'pledged price': null
   })
 
+  console.log('temporarilyChecked===>',temporarilyChecked)
+  console.log('isChecked==>',isChecked)
+
 
   useEffect(() => (
-    setIsChecked(checked)
+    setIsChecked(temporarilyChecked)
   ), [])
 
 
@@ -42,7 +45,6 @@ function Modal({ checked }) {
             id='pledge with no reward'
             name='typeOfReward'
             onClick={() => setIsChecked(-1)}
-            // defaultChecked={checked === 'no reward'}
           />
           <div>
             <label
@@ -99,7 +101,7 @@ function Modal({ checked }) {
               name='typeOfReward'
               onClick={() => setIsChecked(key)}
               disabled={reward.spotsLeft === 0 && true}
-              defaultChecked={checked === key}
+              defaultChecked={temporarilyChecked === key}
             />
             <div>
               <div className='flex justify-between mb-4'>

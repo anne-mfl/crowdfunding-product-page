@@ -13,14 +13,9 @@ import Numbers from './components/Numbers'
 import Detail from './components/Detail'
 import Modal from './components/Modal'
 
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
 
 function App() {
-
-  const [modal, setModal] = useState(false)
-
 
   return (
     <div className='font-commissioner bg-backgroundWhite'>
@@ -38,14 +33,10 @@ function App() {
       </header>
 
       <main>
-        <Top modal={modal} setModal={setModal} />
+        <Top />
         <Numbers />
-        <Detail modal={modal} setModal={setModal} />
+        <Detail />
       </main>
-
-      {/* <Popup trigger={<button>Trigger</button>} position="right center">
-        <Modal/>
-      </Popup> */}
 
     </div>
   );

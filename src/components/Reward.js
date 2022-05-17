@@ -5,7 +5,18 @@ import 'reactjs-popup/dist/index.css';
 import Modal from './Modal'
 import closeModalIcon from '../images/icon-close-modal.svg'
 
-function Reward({setModal}) {
+function Reward() {
+
+  const [selectedReward, setSelectedReward] = useState(null)
+
+  // const button = (temp) => {
+  //   return (
+  //     <button
+  //       className='bg-moderateCyan text-white font-semibold px-8 py-4 rounded-full hover:bg-darkCyan'
+  //       onClick={() => setSelectedReward(temp)}
+  //     >Select Reward</button>
+  //   )
+  // }
 
   return (
     <>
@@ -34,8 +45,8 @@ function Reward({setModal}) {
 
               <Popup
                 trigger={
-                  <button className='bg-moderateCyan text-white font-semibold px-8 py-4 rounded-full hover:bg-darkCyan'
-                    onClick={() => setModal(true)}
+                  <button
+                    className='bg-moderateCyan text-white font-semibold px-8 py-4 rounded-full hover:bg-darkCyan'
                   >Select Reward</button>
                 }
                 modal
@@ -49,13 +60,11 @@ function Reward({setModal}) {
                         className='ml-auto hover:sepia cursor-pointer' />
                     </div>
                     <Modal
-                      checked={key}
+                      temporarilyChecked={key}
                     />
                   </div>
                 )}
               </Popup>
-
-
 
             }
           </div>
