@@ -14,8 +14,10 @@ import Detail from './components/Detail'
 import Modal from './components/Modal'
 
 
-
 function App() {
+
+  const [selectedReward, setSelectedReward] = useState(null)
+  console.log('selectedReward===>', selectedReward)
 
   return (
     <div className='font-commissioner bg-backgroundWhite'>
@@ -33,9 +35,14 @@ function App() {
       </header>
 
       <main>
-        <Top />
+        <Top
+          selectedReward={selectedReward}
+          setSelectedReward={setSelectedReward}
+        />
         <Numbers />
-        <Detail />
+        <Detail
+          selectedReward={selectedReward}
+          setSelectedReward={setSelectedReward} />
       </main>
 
     </div>

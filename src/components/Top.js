@@ -9,7 +9,7 @@ import closeModalIcon from '../images/icon-close-modal.svg'
 import closeModalHoveredIcon from '../images/icon-close-modal-hovered.svg'
 
 
-function Top() {
+function Top({ selectedReward, setSelectedReward }) {
 
   const [bookmarked, setBookmarked] = useState(false)
 
@@ -24,6 +24,7 @@ function Top() {
           trigger={<button
             className='bg-moderateCyan px-10 rounded-full text-white font-semibold hover:bg-darkCyan'
           >Back this project</button>}
+          // onOpen={() => setSelectedReward('no reward')}
           modal
           nested
         >
@@ -34,7 +35,9 @@ function Top() {
                 <img src={closeModalIcon}
                   className='ml-auto hover:sepia cursor-pointer' />
               </div>
-              <Modal checked={'no reward'}/>
+              <Modal
+                selectedReward={selectedReward}
+                setSelectedReward={setSelectedReward} />
             </div>
           )}
         </Popup>

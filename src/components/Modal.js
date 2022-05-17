@@ -7,22 +7,23 @@ import closeModalIcon from '../images/icon-close-modal.svg'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-function Modal({ temporarilyChecked }) {
+function Modal({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice }) {
 
-  const [isChecked, setIsChecked] = useState(null)
-  const [data, setData] = useState({
-    'selected reward': null,
-    'pledged price': null
-  })
+  // const [pledgedPrice, setPledgedPrice] = useState(null)
 
-  console.log('temporarilyChecked===>',temporarilyChecked)
-  console.log('isChecked==>',isChecked)
+  console.log('pledgedPrice==>', pledgedPrice)
 
+  // useEffect(()=>(
+  //   setPledgedPrice(reward.price)
+  // ),[selectedReward])
 
-  useEffect(() => (
-    setIsChecked(temporarilyChecked)
-  ), [])
-
+  const handleOnClick = (reward) => {
+    setSelectedReward(reward.title);
+    setPledgedPrice(reward.price);
+  }
+  // onClick={(() => setSelectedReward(reward.title),
+  //   () => setPledgedPrice(reward.price)
+  // )}
 
   return (
     <div className='px-12 py-4 font-commissioner'>
@@ -31,7 +32,7 @@ function Modal({ temporarilyChecked }) {
       <p className='text-darkGray py-4'>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
 
 
-      <div className={isChecked === -1
+      <div className={selectedReward === 'no reward'
         ? 'border-2 border-moderateCyan rounded-xl'
         : 'border-2 border-borderLight rounded-xl'}>
         <div className='flex px-8 py-6 my-4'>
@@ -44,7 +45,7 @@ function Modal({ temporarilyChecked }) {
           align-top bg-no-repeat bg-center bg-contain float-left mr-6 cursor-pointer'
             id='pledge with no reward'
             name='typeOfReward'
-            onClick={() => setIsChecked(-1)}
+            onClick={() => setSelectedReward('no reward')}
           />
           <div>
             <label
@@ -56,7 +57,7 @@ function Modal({ temporarilyChecked }) {
           </div>
         </div>
         {
-          isChecked === -1
+          selectedReward === 'no reward'
             ?
             <div className='flex justify-between items-center border-t-2 py-6 px-8
             duration-300'>
@@ -65,11 +66,7 @@ function Modal({ temporarilyChecked }) {
                 <span className='text-darkGray relative left-8'>$</span>
                 <input
                   type='number'
-                  onChange={(e) => setData({
-                    ...data,
-                    'selected reward': 'Pledge with no reward',
-                    'pledged price': e.target.value
-                  })}
+                  onChange={(e) => setPledgedPrice(e.target.value)}
                   className='border py-4 rounded-full border-moderateCyan focus:border-2 focus:pt-3 outline-0 w-28 mr-4 pl-10 pr-6 font-semibold'
                 />
                 <button className='bg-moderateCyan hover:bg-darkCyan py-4 px-6 rounded-full text-white font-semibold'>Continue</button>
@@ -82,11 +79,11 @@ function Modal({ temporarilyChecked }) {
 
 
 
-      {rewards.map((reward, key) =>
+      {rewards.map((reward) =>
         <div
           className={reward.spotsLeft === 0
             ? 'border-2 border-borderLight rounded-xl my-4 opacity-30'
-            : isChecked === key
+            : selectedReward === reward.title
               ? 'border-2 border-moderateCyan rounded-xl my-4'
               : 'border-2 border-borderLight rounded-xl  my-4'}
           key={reward.title}
@@ -99,9 +96,13 @@ function Modal({ temporarilyChecked }) {
                 : 'appearance-none rounded-full h-6 w-10 border-2 border-borderLight bg-white hover:border-moderateCyan checked:bg-moderateCyan checked:border-borderLightfocus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-6 cursor-pointer'}
               id={reward.title}
               name='typeOfReward'
-              onClick={() => setIsChecked(key)}
+              // onClick={(() => setSelectedReward(reward.title),
+              //   () => setPledgedPrice(reward.price)
+              // )}
+              onClick={()=>handleOnClick(reward)}
               disabled={reward.spotsLeft === 0 && true}
-              defaultChecked={temporarilyChecked === key}
+              checked={selectedReward === reward.title}
+              readOnly
             />
             <div>
               <div className='flex justify-between mb-4'>
@@ -124,7 +125,7 @@ function Modal({ temporarilyChecked }) {
             </div>
           </div>
           {
-            isChecked === key
+            selectedReward === reward.title
               ?
               <div className='flex justify-between items-center border-t-2 py-6 px-8 duration-300'>
                 <p className='text-darkGray'>Enter your pledge</p>
@@ -134,12 +135,7 @@ function Modal({ temporarilyChecked }) {
                   <input
                     type='number'
                     defaultValue={reward.price}
-                    onChange={(e) => setData({
-                      ...data,
-
-                      'selected reward': reward.title,
-                      'pledged price': e.target.value
-                    })}
+                    onChange={(e) => setPledgedPrice(e.target.value)}
                     className='border py-4 rounded-full border-moderateCyan focus:border-2 focus:pt-3 outline-0 w-28 mr-4 pl-10 pr-6 font-semibold'
                   />
                   <button className='bg-moderateCyan hover:bg-darkCyan py-4 px-6 rounded-full text-white font-semibold'>Continue</button>

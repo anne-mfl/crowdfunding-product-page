@@ -5,18 +5,14 @@ import 'reactjs-popup/dist/index.css';
 import Modal from './Modal'
 import closeModalIcon from '../images/icon-close-modal.svg'
 
-function Reward() {
+function Reward({ selectedReward, setSelectedReward }) {
 
-  const [selectedReward, setSelectedReward] = useState(null)
+  const [pledgedPrice, setPledgedPrice] = useState(null)
 
-  // const button = (temp) => {
-  //   return (
-  //     <button
-  //       className='bg-moderateCyan text-white font-semibold px-8 py-4 rounded-full hover:bg-darkCyan'
-  //       onClick={() => setSelectedReward(temp)}
-  //     >Select Reward</button>
-  //   )
-  // }
+  const handleOnOpen = (reward) => {
+    setSelectedReward(reward.title)
+    setPledgedPrice(reward.price)
+  }
 
   return (
     <>
@@ -49,6 +45,8 @@ function Reward() {
                     className='bg-moderateCyan text-white font-semibold px-8 py-4 rounded-full hover:bg-darkCyan'
                   >Select Reward</button>
                 }
+                // onOpen={() => setSelectedReward(reward.title)}
+                onOpen={() => handleOnOpen(reward)}
                 modal
                 nested
               >
@@ -60,7 +58,11 @@ function Reward() {
                         className='ml-auto hover:sepia cursor-pointer' />
                     </div>
                     <Modal
-                      temporarilyChecked={key}
+                      // temporarilyChecked={key}
+                      selectedReward={selectedReward}
+                      setSelectedReward={setSelectedReward}
+                      pledgedPrice={pledgedPrice}
+                      setPledgedPrice={setPledgedPrice}
                     />
                   </div>
                 )}
