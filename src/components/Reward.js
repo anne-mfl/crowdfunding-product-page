@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import rewards from '../data.json'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import Modal from './Modal'
+import Modal from '../pages/Modal'
 import closeModalIcon from '../images/icon-close-modal.svg'
 
 function Reward({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice }) {
@@ -49,19 +49,22 @@ function Reward({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPri
                 nested
               >
                 {close => (
-                  <div className='rounded-xl bg-white '>
+                  <div className='rounded-xl bg-white'>
                     <div onClick={close}
                       className='pt-5 px-5'>
                       <img src={closeModalIcon}
                         className='ml-auto hover:sepia cursor-pointer' />
                     </div>
+
                     <Modal
                       selectedReward={selectedReward}
                       setSelectedReward={setSelectedReward}
                       pledgedPrice={pledgedPrice}
                       setPledgedPrice={setPledgedPrice}
+                      close={close}
                     />
-                    <div clasName='rounded-xl bg-white'>&nbsp;</div>
+
+                    <div clasName=''>&nbsp;</div>
                   </div>
                 )}
               </Popup>

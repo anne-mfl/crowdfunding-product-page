@@ -11,7 +11,7 @@ import hamburger from './images/icon-hamburger.svg'
 import Top from './components/Top'
 import Numbers from './components/Numbers'
 import Detail from './components/Detail'
-import Modal from './components/Modal'
+import Modal from './pages/Modal'
 
 
 function App() {

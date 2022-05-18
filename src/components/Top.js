@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import rewards from '../data.json'
 import mastercraftLogo from '../images/logo-mastercraft.svg'
 import bookmarkIcon from '../images/icon-bookmark.svg'
 import bookmarkedIcon from '../images/icon-bookmarked.svg'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import Modal from './Modal'
+import Modal from '../pages/Modal'
 import closeModalIcon from '../images/icon-close-modal.svg'
 import closeModalHoveredIcon from '../images/icon-close-modal-hovered.svg'
+
 
 
 function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice }) {
@@ -24,7 +26,6 @@ function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice 
           trigger={<button
             className='bg-moderateCyan px-10 rounded-full text-white font-semibold hover:bg-darkCyan'
           >Back this project</button>}
-          // onOpen={() => setSelectedReward('no reward')}
           modal
           nested
         >
@@ -40,38 +41,41 @@ function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice 
                 setSelectedReward={setSelectedReward}
                 pledgedPrice={pledgedPrice}
                 setPledgedPrice={setPledgedPrice}
+                close={close}
               />
+              <div>&nbsp;</div>
             </div>
           )}
-        </Popup>
+    </Popup>
 
 
 
-        {bookmarked
-          ?
-          <button
-            className='flex items-center bg-borderMiddle pr-8 rounded-full text-darkCyan font-semibold'
-            onClick={() => setBookmarked(!bookmarked)}
-          >
-            <img src={bookmarkedIcon} alt='bookmark icon'
-              className='mr-4' />
-            Bookmarked
-          </button>
-          :
-          <button
-            className='flex items-center bg-borderMiddle pr-8 rounded-full text-darkGray font-semibold'
-            onClick={() => setBookmarked(!bookmarked)}
-          >
-            <img src={bookmarkIcon} alt='bookmark icon'
-              className='mr-4' />
-            Bookmark
-          </button>
-        }
+        {
+    bookmarked
+      ?
+      <button
+        className='flex items-center bg-borderMiddle pr-8 rounded-full text-darkCyan font-semibold'
+        onClick={() => setBookmarked(!bookmarked)}
+      >
+        <img src={bookmarkedIcon} alt='bookmark icon'
+          className='mr-4' />
+        Bookmarked
+      </button>
+      :
+      <button
+        className='flex items-center bg-borderMiddle pr-8 rounded-full text-darkGray font-semibold'
+        onClick={() => setBookmarked(!bookmarked)}
+      >
+        <img src={bookmarkIcon} alt='bookmark icon'
+          className='mr-4' />
+        Bookmark
+      </button>
+  }
 
 
 
-      </div>
-    </section>
+      </div >
+    </section >
   )
 }
 
