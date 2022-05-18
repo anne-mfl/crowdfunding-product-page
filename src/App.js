@@ -45,7 +45,9 @@ function App() {
           pledgedPrice={pledgedPrice}
           setPledgedPrice={setPledgedPrice}
         />
+
         <Numbers />
+        
         <Detail
           selectedReward={selectedReward}
           setSelectedReward={setSelectedReward}

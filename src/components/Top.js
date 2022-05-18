@@ -47,8 +47,6 @@ function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice 
 
 
 
-
-
         {bookmarked
           ?
           <button

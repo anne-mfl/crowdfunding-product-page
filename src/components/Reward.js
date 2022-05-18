@@ -49,7 +49,7 @@ function Reward({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPri
                 nested
               >
                 {close => (
-                  <div className='rounded-xl bg-white'>
+                  <div className='rounded-xl bg-white '>
                     <div onClick={close}
                       className='pt-5 px-5'>
                       <img src={closeModalIcon}
@@ -61,6 +61,7 @@ function Reward({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPri
                       pledgedPrice={pledgedPrice}
                       setPledgedPrice={setPledgedPrice}
                     />
+                    <div clasName='rounded-xl bg-white'>&nbsp;</div>
                   </div>
                 )}
               </Popup>
