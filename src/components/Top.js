@@ -16,7 +16,9 @@ function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice 
   const [bookmarked, setBookmarked] = useState(false)
 
   return (
-    <section className='bg-white w-6/12 mx-auto text-center pb-12 relative bottom-20 rounded-xl border-borderMiddle border-2 mb-6'>
+    <section className='bg-white
+    lg:w-6/12 md:w-8/12 sm:w-10/12 w-11/12
+      mx-auto text-center pb-12 relative bottom-20 rounded-xl border-borderMiddle border-2 mb-6'>
       <img src={mastercraftLogo} alt='mastercraft logo' className='mx-auto relative bottom-8' />
       <h1 className='text-3xl font-bold mb-4 -mt-3'>Mastercraft Bamboo Monitor Riser</h1>
       <h2 className='text-darkGray'>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</h2>
@@ -27,7 +29,6 @@ function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice 
             className='bg-moderateCyan px-10 rounded-full text-white font-semibold hover:bg-darkCyan'
           >Back this project</button>}
           modal
-          nested
         >
           {close => (
             <div className='rounded-xl bg-white'>

@@ -13,9 +13,6 @@ function DefaultModal({
 
   const [message, setMessage] = useState(null)
 
-  console.log('pledgedPrice--->', pledgedPrice)
-  console.log('selectedReward===>', selectedReward)
-
   const handleOnClick = (reward) => {
     setSelectedReward(reward.title || reward);
     setPledgedPrice(reward.price || null);
@@ -54,7 +51,7 @@ function DefaultModal({
         <div className='flex px-8 py-6 my-4'>
           <input
             type='radio'
-            className='appearance-none rounded-full h-6 w-10 border-2 border-borderLight bg-white 
+            className='appearance-none rounded-full border-2 border-borderLight bg-white 
             hover:border-moderateCyan 
             checked:bg-moderateCyan checked:border-borderLight
              focus:outline-none
@@ -92,7 +89,7 @@ function DefaultModal({
                   >Continue</button>
                 </div>
               </div>
-              <p className='text-right text-red-500 text-xs relative right-36 pr-2 bottom-5'>{message}</p>
+              <p className='text-right text-red-500 text-xs relative right-28 pr-2'>{message}</p>
             </div>
             :
             <div className='h-0 duration-300'></div>
@@ -114,8 +111,8 @@ function DefaultModal({
             <input
               type='radio'
               className={reward.spotsLeft === 0
-                ? 'appearance-none rounded-full h-6 w-10 border-2 border-borderLight bg-white mr-6'
-                : 'appearance-none rounded-full h-6 w-10 border-2 border-borderLight bg-white hover:border-moderateCyan checked:bg-moderateCyan checked:border-borderLightfocus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-6 cursor-pointer'}
+                ? 'appearance-none rounded-full border-2 border-borderLight bg-white mr-6'
+                : 'appearance-none rounded-full border-2 border-borderLight bg-white hover:border-moderateCyan checked:bg-moderateCyan checked:border-borderLightfocus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-6 cursor-pointer'}
               id={reward.title}
               name='typeOfReward'
               onClick={() => handleOnClick(reward)}
@@ -164,7 +161,7 @@ function DefaultModal({
                     >Continue</button>
                   </div>
                 </div>
-                <p className='text-right text-red-500 text-xs relative right-16 bottom-5'>{message}</p>
+                <p className='text-right text-red-500 text-xs relative right-16'>{message}</p>
               </div>
               :
               <div className='h-0 duration-300'></div>

@@ -46,7 +46,6 @@ function Reward({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPri
                 }
                 onOpen={() => handleOnOpen(reward)}
                 modal
-                nested
               >
                 {close => (
                   <div className='rounded-xl bg-white'>
