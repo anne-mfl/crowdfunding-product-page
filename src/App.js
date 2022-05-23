@@ -12,18 +12,19 @@ function App() {
 
   const [selectedReward, setSelectedReward] = useState(null)
   const [pledgedPrice, setPledgedPrice] = useState(null)
-  const [openMenu, setOpenMenu] = useState(false)
+  // const [openMenu, setOpenMenu] = useState(false)
 
 
   return (
-    <div className={openMenu
+    <div className='font-commissioner bg-backgroundWhite'>
+    {/* <div className={openMenu
       ? 'font-commissioner bg-backgroundWhite h-screen overflow-y-hidden'
       : 'font-commissioner bg-backgroundWhite'
-    }>
+    }> */}
 
       <Header
-        openMenu={openMenu}
-        setOpenMenu={setOpenMenu}
+        // openMenu={openMenu}
+        // setOpenMenu={setOpenMenu}
       />
 
       <main>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../images/logo.svg'
 import headerImage from '../images/image-hero-desktop.jpg'
 import headerImageMobile from '../images/image-hero-mobile.jpg'
@@ -7,9 +7,10 @@ import closeModal from '../images/icon-close-modal.svg'
 import hamburger from '../images/icon-hamburger.svg'
 
 
-function Header({openMenu, setOpenMenu}) {
+function Header(/*{openMenu, setOpenMenu}*/) {
 
-  // const [openMenu, setOpenMenu] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false)
+
 
 
   return (
@@ -41,18 +42,22 @@ function Header({openMenu, setOpenMenu}) {
             onClick={() => setOpenMenu(!openMenu)} />
         </div>
 
-        {
-          openMenu &&
-          <div className='flex justify-center w-full h-full   bg-black bg-opacity-70 z-10 absolute top-0'>
-            <div className='z-10 rounded-xl bg-white absolute top-24 w-10/12 mx-auto '>
-              <ul className='font-semibold'>
-                <li className='py-3 pl-6 border-b border-borderLight cursor-pointer'>About</li>
-                <li className='py-3 pl-6 border-b border-borderLight cursor-pointer'>Discover</li>
-                <li className='py-3 pl-6 cursor-pointer'>Get Started</li>
-              </ul>
-            </div>
+
+        <div
+          className={openMenu
+            ? 'flex justify-center w-full h-full z-10 absolute -top-16 bg-gradient-to-b menu-bg'
+            : 'flex justify-center w-full z-10 absolute -top-32'
+          }>
+          <div className={openMenu
+            ? 'z-10 rounded-xl bg-white absolute top-24 w-10/12 mx-auto translate-y-16 duration-500'
+            : 'z-10 rounded-xl bg-white absolute top-24 w-10/12 mx-auto -translate-y-full duration-500'}>
+            <ul className='font-semibold'>
+              <li className='py-3 pl-6 border-b border-borderLight cursor-pointer'>About</li>
+              <li className='py-3 pl-6 border-b border-borderLight cursor-pointer'>Discover</li>
+              <li className='py-3 pl-6 cursor-pointer'>Get Started</li>
+            </ul>
           </div>
-        }
+        </div>
 
       </nav>
 

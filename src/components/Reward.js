@@ -15,21 +15,21 @@ function Reward({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPri
 
   return (
     <>
-      {rewards.map((reward, key) =>
+      {rewards.map((reward) =>
         <section
           className={reward.spotsLeft === 0
-            ? 'border-2 border-borderDark p-8 rounded-xl mb-6 opacity-30'
-            : 'border-2 border-borderDark p-8 rounded-xl mb-6'}
+            ? 'border-2 border-borderDark sm:px-8 px-4 py-8 rounded-xl mb-6 opacity-30'
+            : 'border-2 border-borderDark sm:px-8 px-4 py-8 rounded-xl mb-6'}
           key={reward.title}>
-          <div className='flex justify-between mb-8'>
-            <h2 className='font-bold text-xl'>{reward.title}</h2>
+          <div className='sm:flex justify-between items-center mb-8'>
+            <h2 className='font-bold text-xl mb-2'>{reward.title}</h2>
             <h3 className='text-moderateCyan font-medium'>Pledge ${reward.price}or more</h3>
           </div>
 
           <p className='text-darkGray mb-10'>{reward.description}</p>
 
-          <div className='flex justify-between'>
-            <div className='flex items-center'>
+          <div className='sm:flex justify-between'>
+            <div className='flex items-center mb-3 sm:mb-0'>
               <h4 className='font-bold text-3xl mr-3'>{reward.spotsLeft}</h4>
               <p className='text-darkGray'>left</p>
             </div>
