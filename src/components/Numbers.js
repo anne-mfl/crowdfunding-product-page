@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function Numbers() {
 
-  const [raisedAmount, setRaisedAmount] = useState(89914)
-  const [targetAmount, setTargetAmount] = useState(100000)
-
+  const raisedAmount = 89914
+  const targetAmount = 100000
   const achievementRatio = raisedAmount / targetAmount * 100
 
 

@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import logo from '../images/logo.svg'
 import headerImage from '../images/image-hero-desktop.jpg'
 import headerImageMobile from '../images/image-hero-mobile.jpg'
 import closeMenu from '../images/icon-close-menu.svg'
-import closeModal from '../images/icon-close-modal.svg'
 import hamburger from '../images/icon-hamburger.svg'
 
 
-function Header(/*{openMenu, setOpenMenu}*/) {
+function Header() {
 
   const [openMenu, setOpenMenu] = useState(false)
-
-
 
   return (
     <header>
       <img
         src={headerImage}
-        alt='image of bamboo monitor riser'
+        alt='bamboo monitor riser'
         className='hidden md:block md:w-full' />
 
       <img
         src={headerImageMobile}
-        alt='image of bamboo monitor riser'
+        alt='bamboo monitor riser'
         className='w-full md:hidden' />
 
       <nav className=''>
@@ -42,7 +39,6 @@ function Header(/*{openMenu, setOpenMenu}*/) {
             onClick={() => setOpenMenu(!openMenu)} />
         </div>
 
-
         <div
           className={openMenu
             ? 'flex justify-center w-full h-full z-10 absolute -top-16 bg-gradient-to-b menu-bg'
@@ -60,8 +56,6 @@ function Header(/*{openMenu, setOpenMenu}*/) {
         </div>
 
       </nav>
-
-
 
     </header>
 

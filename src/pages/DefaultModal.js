@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import rewards from '../data.json'
 
-
 function DefaultModal({
   selectedReward,
   setSelectedReward,

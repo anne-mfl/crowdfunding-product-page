@@ -12,18 +12,6 @@ input[type="radio"]:checked  {
   background: linear-gradient(0deg, rgba(247,242,242,0.14) 0%, rgba(14,14,14,0.9) 100%);
 }
 
-
-/* .popup-content{
-  padding: 0 !important;
-  border: none !important;
-  background-color: transparent !important;
-  height: 90vh;
-  margin: auto;
-  overflow-y: scroll;
-  border-radius: 20px ;
-} */
-
-
 .popup-content{
   padding: 0 !important;
   border: none !important;
@@ -47,11 +35,6 @@ input[type="radio"]:checked  {
   height: 90vh;
   overflow-y: scroll;
 }
-
-/* .popup-content .complete-modal {
-  overflow-y: none;
-} */
-
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

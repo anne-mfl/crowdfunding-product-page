@@ -6,8 +6,6 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Modal from '../pages/Modal'
 import closeModalIcon from '../images/icon-close-modal.svg'
-// import closeModalHoveredIcon from '../images/icon-close-modal-hovered.svg'
-
 
 
 function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice }) {
@@ -33,7 +31,7 @@ function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice 
             <div className='rounded-xl bg-white'>
               <div onClick={close}
                 className='pt-5 px-5'>
-                <img src={closeModalIcon}
+                <img src={closeModalIcon} alt='close icon'
                   className='ml-auto hover:sepia cursor-pointer' />
               </div>
               <Modal
