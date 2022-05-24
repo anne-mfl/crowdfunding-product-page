@@ -40,8 +40,9 @@ Users should be able to:
 - [Live site here](https://anne-mfl.github.io/crowdfunding-product-page)
 
 ## Built with
-- Semantic HTML5 markup
-- CSS custom properties
+- HTML
+- CSS
+- Tailwind CSS
 - Flexbox
 - [React](https://reactjs.org/) - JS library
 
