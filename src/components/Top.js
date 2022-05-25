@@ -57,7 +57,7 @@ function Top({ selectedReward, setSelectedReward, pledgedPrice, setPledgedPrice 
             >
               <img src={bookmarkedIcon} alt='bookmark icon'
                 className='sm:mr-4' />
-              <p className='hidden sm:block'>Bookmark</p>
+              <p className='hidden sm:block'>Bookmarked</p>
             </button>
             :
             <button
